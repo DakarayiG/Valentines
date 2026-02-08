@@ -1,0 +1,327 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+    /* REMOVED: overflow: hidden; */
+    position: relative;
+    padding: 20px; /* Add padding for mobile */
+}
+
+.container {
+    text-align: center;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    position: relative;
+    z-index: 10;
+    margin: 20px auto; /* Center with auto margins */
+    min-height: auto; /* Remove fixed height */
+}
+
+h1 {
+    color: #e91e63;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bear-container {
+    margin: 25px 0;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bear {
+    width: 180px;
+    height: 180px;
+    background-color: #fff5f7;
+    border-radius: 50%;
+    border: 3px solid #ff9eb5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 25px rgba(255, 64, 129, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.bear-emoji {
+    font-size: 100px;
+    display: block;
+    animation: bounce 2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-10px) scale(1.05);
+    }
+}
+
+.bear::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle at 20% 30%, #ffcdd2 2px, transparent 2px), radial-gradient(circle at 80% 70%, #ffcdd2 2px, transparent 2px);
+    background-size: 30px 30px;
+    opacity: 0.3;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    position: relative;
+    min-height: 120px;
+}
+
+.btn {
+    padding: 18px 45px;
+    font-size: 1.8rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 5;
+}
+#yesBtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 18px 60px; /* Increased horizontal padding */
+    min-width: 200px; /* Wider minimum width */
+}
+    #noBtn {
+    background-color: #f44336;
+    color: white;
+    position: absolute;
+    transition: all 0.5s ease;
+}
+
+#yesBtn:hover {
+    background-color: #45a049;
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.footer {
+    margin-top: 30px;
+    color: #e91e63;
+    font-size: 1.4rem;
+    padding: 10px;
+    background-color: #fff5f7;
+    border-radius: 10px;
+    border: 2px dashed #ff9eb5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.heart-icon {
+    font-size: 1.6rem;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.heart {
+    position: absolute;
+    color: #ff4081;
+    font-size: 24px;
+    animation: float 5s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(20deg);
+        opacity: 1;
+    }
+}
+
+.message {
+    display: none;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #ffebee;
+    border-radius: 15px;
+    color: #d32f2f;
+    font-size: 2.5rem;
+    font-weight: bold;
+    animation: fadeIn 1s;
+    border: 3px solid #ff4081;
+    box-shadow: 0 5px 15px rgba(255, 64, 129, 0.3);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add extra content to make scrolling more apparent */
+.extra-content {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    display: none; /* Hidden by default, can be enabled */
+}
+
+    .extra-content h2 {
+        color: #e91e63;
+        margin-bottom: 15px;
+    }
+
+.love-message {
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Show more button */
+.show-more-btn {
+    background-color: #e91e63;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+    .show-more-btn:hover {
+        background-color: #c2185b;
+        transform: scale(1.05);
+    }
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+        align-items: flex-start; /* Align to top on mobile */
+        min-height: auto;
+        display: block;
+    }
+
+    .container {
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .btn {
+        padding: 15px 30px;
+        font-size: 1.5rem;
+    }
+
+    .bear {
+        width: 150px;
+        height: 150px;
+    }
+
+    .bear-emoji {
+        font-size: 80px;
+    }
+
+    .message {
+        font-size: 2rem;
+        padding: 15px;
+    }
+
+    .footer {
+        font-size: 1.2rem;
+    }
+}
+
+/* For very tall screens */
+@media (min-height: 900px) {
+    .container {
+        margin: 50px auto;
+    }
+}
+/* Add to your existing CSS */
+#noBtn {
+    background-color: #f44336;
+    color: white;
+    position: absolute;
+    transition: all 0.3s ease; /* Smoother transition */
+    cursor: pointer;
+    z-index: 100;
+    /* Ensure it's positioned relative to container */
+    margin: 0;
+}
+
+.buttons-container {
+    position: relative;
+    min-height: 200px; /* Increased for more movement space */
+    width: 100%;
+}
+
+/* Make sure button doesn't get too small on mobile */
+@media (max-width: 600px) {
+    #noBtn {
+        min-width: 120px;
+        padding: 12px 25px;
+        font-size: 1.4rem;
+    }
+
+    .buttons-container {
+        min-height: 180px;
+    }
+}
